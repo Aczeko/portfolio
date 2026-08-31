@@ -7,27 +7,34 @@
     <title>Amina C. Portfolio</title>
   </head>
   <body>
-  <header>
-  <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+  <header class="container header-content">
+      <div class="logo">Amina Cajlakovic</div>
 
-<main>
-    <!-- Hero Section -->
-    <section id="home">
-        <p>Available for new Projects</p>
-        <h1>Hey! , I am Amina</h1>
-        <p>Frontend Developer</p>
-        <p>I craft beautiful, functional digital experiences that bring ideas to life. Specializing in modern web development and user-centered design.</p>
-        <a href="#projects">View My Work</a>
-        <a href="#contact">Get in Touch</a>
-    </section>
+      <input type="checkbox" id="burger-toggle" class="burger-checkbox">
+      <label for="burger-toggle" class="burger-icon">&#9776;</label>
+
+      <nav class="nav-menu">
+          <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#contact">Contact</a></li>
+          </ul>
+      </nav>
+  </header>
+
+  <main class="container">
+      <!-- Hero Section -->
+      <section id="home">
+          <p class="badge">Available for new Projects</p>
+          <h1>Hey! , I am <span class="highlight">Amina</span></h1>
+          <h4>Frontend Developer</h4>
+          <p>I craft beautiful, functional digital experiences that bring ideas to life. Specializing in modern web development and user-centered design.</p>
+          <div class="hero-buttons">
+              <a href="#projects" class="btn">View My Work</a>
+              <a href="#contact" class="btn btn-outline">Get in Touch</a>
+          </div>
+      </section>
 
     <!-- About Section -->
     <section id="about">
@@ -37,13 +44,44 @@
         <img src="assets/images/my-pixel-avatar.png" alt="My custom pixel art avatar" width="200" height="200">
 
         <h3>Skills & Technologies</h3>
-        <ul>
-            <li>HTML & CSS</li>
-            <li>JavaScript & React</li>
-            <li>Laravel & PHP</li>
-            <li>Java</li>
-            <li>UI/UX Design</li>
-        </ul>
+        <div class="projects-grid">
+            <article class="card">
+                <h4>Frontend & Design</h4>
+                <ul class="tags">
+                    <li>HTML5 & CSS</li>
+                    <li>JavaScript</li>
+                    <li>React</li>
+                    <li>Inertia.js</li>
+                    <li>Alpine.js</li>
+                    <li>Tailwind CSS</li>
+                    <li>Bootstrap</li>
+                    <li>Figma</li>
+                    <li>Canva</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h4>Backend & Data</h4>
+                <ul class="tags">
+                    <li>PHP & Laravel</li>
+                    <li>Livewire & Filament</li>
+                    <li>Java</li>
+                    <li>MySQL & MariaDB</li>
+                    <li>SQLite</li>
+                    <li>MS SQL</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h4>CMS & Workflow</h4>
+                <ul class="tags">
+                    <li>WordPress</li>
+                    <li>Shopify</li>
+                    <li>Git</li>
+                    <li>Markdown</li>
+                </ul>
+            </article>
+        </div>
     </section>
 
     <!-- Projects Section -->
@@ -51,30 +89,41 @@
         <h2>My Projects</h2>
         <p>A collection of projects I've worked on, ranging from web applications to mobile apps and everything in between.</p>
 
-        <!-- Project 1 -->
-        <article>
-            <img src="assets/images/placeholder.jpg" alt="Project name">
-            <h3>Project 1</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-            </ul>
-            <a href="#">View Details</a>
-        </article>
-
+        <div class="projects-grid">
+            <article class="card">
+                    <img src="assets/images/placeholder.jpg" alt="Project name">
+                    <h3>Project 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                    <ul class="tags">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                    <a href="#">View Details</a>
+            </article>
+            <article class="card">
+                <img src="assets/images/placeholder.jpg" alt="Project name">
+                <h3>Project 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                <ul class="tags">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+                <a href="#">View Details</a>
+            </article>
+        </div>
     </section>
 </main>
 
-<footer id="contact">
+<footer id="contact" class="container footer-content">
     <h2>Let's Work Together</h2>
     <p>I'm always open to discussing new opportunities, creative projects, or partnerships.</p>
 
-    <a href="mailto:a.cajlakovic03@gmail.com">Send Message</a>
+    <a href="mailto:a.cajlakovic03@gmail.com" class="btn">Send Message</a>
 
     <h3>My Socials</h3>
-    <ul>
+    <ul class="socials">
         <li><a href="https://github.com/Aczeko">GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/amina-cajlakovic/">LinkedIn</a></li>
     </ul>
