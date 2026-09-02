@@ -273,8 +273,6 @@ header.hide-on-scroll {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
 }
 
 #experience, #education {
@@ -343,7 +341,6 @@ header.hide-on-scroll {
     align-items: flex-start;
     gap: 0.35rem;
     width: 100%;
-    margin-bottom: 1rem;
 }
 
 .timeline-content .company {
@@ -392,24 +389,23 @@ header.hide-on-scroll {
     gap: 2rem;
 }
 
-.edu-meta {
+.edu-card {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
-    margin-top: 0.5rem;
+    align-items: flex-start;
 }
 
-.edu-meta .company {
-    display: block;
+.edu-year {
+    display: inline-block;
+    background-color: rgba(146, 32, 69, 0.15);
     color: var(--accent-color);
-    font-weight: 600;
-    font-size: 0.95rem;
-}
-
-.edu-meta .duration {
+    padding: 0.35rem 0.85rem;
+    border-radius: 6px;
     font-size: 0.85rem;
-    color: var(--text-secondary);
-    font-weight: 500;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(146, 32, 69, 0.2);
+    backdrop-filter: blur(4px);
 }
 
 .edu-card h4 {
@@ -420,15 +416,15 @@ header.hide-on-scroll {
 
 .edu-card .company {
     display: block;
-    color: var(--accent-color);
-    font-weight: 600;
+    color: var(--text-secondary);
+    font-weight: 500;
     font-size: 0.95rem;
 }
 
 /* --- Cards & Projects --- */
 .projects-grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 2rem;
 }
 
@@ -439,6 +435,9 @@ header.hide-on-scroll {
     padding: 1.5rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .card:hover {
@@ -501,6 +500,39 @@ header.hide-on-scroll {
     transform: translateX(5px);
 }
 
+
+.image-wrapper {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.image-wrapper img {
+    margin-bottom: 0;
+}
+
+.badge-coming-soon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: rgba(14, 14, 14, 0.85);
+    color: var(--accent-color);
+    padding: 0.35rem 0.85rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(146, 32, 69, 0.3);
+    backdrop-filter: blur(4px);
+    z-index: 10;
+}
+
+.status-text {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    color: var(--text-secondary);
+}
+
 /* --- Tags --- */
 .tags {
     display: flex;
@@ -508,6 +540,7 @@ header.hide-on-scroll {
     gap: 0.5rem;
     list-style: none;
     margin-bottom: 1.5rem;
+    margin-top: auto;
 }
 
 .tags li {
@@ -652,9 +685,9 @@ header.hide-on-scroll {
 
     .timeline-content .company-row {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
-        gap: 3rem;
+        gap: 1rem;
         margin-top: 0;
     }
 
@@ -663,21 +696,9 @@ header.hide-on-scroll {
         flex-shrink: 0;
     }
 
-    .edu-meta {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 2rem;
-    }
-
     /* Projects */
     .projects-grid {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .card {
-        flex: 1 1 calc(33.333% - 2rem);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     /* Footer */
