@@ -1,32 +1,48 @@
-const header = document.getElementById('main-header');
-const burgerBtn = document.getElementById('burger-btn');
-const navMenu = document.getElementById('nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
-let lastScrollY = window.scrollY;
+document.addEventListener('DOMContentLoaded', () => {
 
-burgerBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    navMenu.classList.toggle('open');
-});
+    const navLinks = document.querySelectorAll('.nav-link');
 
-navLinks.forEach(link => {
-    link.addEventListener('click', () => navMenu.classList.remove('open'));
-});
+    const sections = Array.from(navLinks).map(link => {
+        const id = link.getAttribute('href');
+        return document.querySelector(id);
+    });
 
-document.addEventListener('click', (e) => {
-    if (!header.contains(e.target) && navMenu.classList.contains('open')) {
-        navMenu.classList.remove('open');
+    window.addEventListener('scroll', () => {
+        let currentSectionId = '';
+
+        sections.forEach(section => {
+            if (section) {
+                const sectionTop = section.offsetTop - 150;
+                if (window.scrollY >= sectionTop) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            }
+        });
+
+        if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 10) {
+            currentSectionId = 'contact';
+        }
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSectionId}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    const burgerBtn = document.getElementById('burger-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (burgerBtn && navMenu) {
+        burgerBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+            });
+        });
     }
-});
-
-window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        header.classList.add('hide-on-scroll');
-        navMenu.classList.remove('open');
-    } else {
-        header.classList.remove('hide-on-scroll');
-    }
-    lastScrollY = currentScrollY;
 });
