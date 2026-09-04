@@ -60,6 +60,14 @@ h3 {
     color: var(--accent-color);
 }
 
+.role-title,
+.card-title,
+h4 {
+    font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
 h4 {
     font-size: clamp(1.1rem, 1.5vw, 1.25rem);
     font-weight: 600;
@@ -360,10 +368,8 @@ header.hide-on-scroll {
     width: 100%;
 }
 
-.timeline-content h4 {
+.timeline-content .card-title {
     margin-bottom: 0.2rem;
-    color: var(--text-primary);
-    font-size: 1.15rem;
 }
 
 .timeline-content .company-row {
