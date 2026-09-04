@@ -7,19 +7,31 @@ document.addEventListener('DOMContentLoaded', () => {
         return document.querySelector(id);
     });
 
+    const header = document.getElementById('main-header');
+    let lastScrollY = window.scrollY;
+
     window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            header.classList.add('hide-on-scroll');
+        } else {
+            header.classList.remove('hide-on-scroll');
+        }
+        lastScrollY = currentScrollY;
+
         let currentSectionId = '';
 
         sections.forEach(section => {
             if (section) {
                 const sectionTop = section.offsetTop - 150;
-                if (window.scrollY >= sectionTop) {
+                if (currentScrollY >= sectionTop) {
                     currentSectionId = section.getAttribute('id');
                 }
             }
         });
 
-        if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 10) {
+        if ((window.innerHeight + currentScrollY) >= document.documentElement.scrollHeight - 10) {
             currentSectionId = 'contact';
         }
 
