@@ -6,6 +6,7 @@
     /* Farbkonzept */
     --accent-color: #922045;
     --accent-hover: #701835;
+    --accent-light: #e85d89;
 
     --bg-color: #0a0a0a;
     --surface-color: #141414;
@@ -200,7 +201,7 @@ header.hide-on-scroll {
     padding: 0.4rem 1.2rem;
     border-radius: 9999px;
     background-color: rgba(146, 32, 69, 0.15);
-    color: var(--accent-color);
+    color: var(--accent-light);
     border: 1px solid var(--accent-color);
     font-size: 0.85rem;
     margin-bottom: 0.5rem;
@@ -237,7 +238,8 @@ header.hide-on-scroll {
 
 .btn.btn-outline {
     background-color: transparent;
-    color: var(--accent-color) !important;
+    color: var(--text-primary) !important;
+    border: 2px solid var(--accent-color);
 }
 
 .btn:hover {
