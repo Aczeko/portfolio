@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 :root {
-    color-scheme: light dark;
+    color-scheme: dark;
 
     /* Farbkonzept */
     --accent-color: #922045;
     --accent-hover: #701835;
 
-    --bg-color: light-dark(#f8fafc, #0a0a0a);
-    --surface-color: light-dark(#ffffff, #141414);
-    --text-primary: light-dark(#0f172a, #ededed);
-    --text-secondary: light-dark(#475569, #a3a3a3);
+    --bg-color: #0a0a0a;
+    --surface-color: #141414;
+    --text-primary: #ededed;
+    --text-secondary: #a3a3a3;
 }
 
 /* --- Base & Reset --- */
@@ -162,8 +162,18 @@ header.hide-on-scroll {
 }
 
 .highlight {
-    color: var(--accent-color);
-     /* todo animation */
+    background: linear-gradient(90deg, var(--accent-color), #d64571, var(--accent-color));
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: text-shimmer 3.5s linear infinite;
+}
+
+@keyframes text-shimmer {
+    to {
+        background-position: 200% center;
+    }
 }
 
 .badge {
@@ -609,6 +619,17 @@ header.hide-on-scroll {
     filter: drop-shadow(0 0 8px rgba(146, 32, 69, 0.4));
 }
 
+/* --- Scroll Animations --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* ========================================================
    MEDIA QUERY (Ab 768px)
